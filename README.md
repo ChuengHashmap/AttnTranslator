@@ -6,3 +6,8 @@ This project is a translation model from Spanish to English, built with tensorfl
 DataLoader.py: Load online data of Spanish-English pairs from tensorflow.
 Utils.py: Some util functions.
 train.py: Train the model and save it.
+### Run the model
+You can run the model by the following codes
+```
+python train.py --plotting True --saving True --batch_size 64 --epochs 100 --UNITS 256
+```
