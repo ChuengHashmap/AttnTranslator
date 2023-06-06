@@ -12,3 +12,5 @@ You can train the model by the following codes
 python train.py --plotting True --saving True --batch_size 64 --epochs 100 --UNITS 256
 ```
 You can run use the model to conduct translation jobs through ```python predict.py```
+  
+The detailed descriptions are in the 
