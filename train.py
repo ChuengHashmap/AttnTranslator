@@ -5,7 +5,7 @@ from utils import masked_acc, masked_loss
 import argparse
 
 parser = argparse.ArgumentParser(description='Tensorflow Translator')
-parser.add_argument('--ploting', type=bool, default=False, help='')
+parser.add_argument('--plotting', type=bool, default=False, help='')
 parser.add_argument('--saving', type=bool, default=True, help='')
 parser.add_argument('--batch_size', type=int, default=64, help='')
 parser.add_argument('--UNITS', type=int, default=256, help='')
