@@ -2,12 +2,20 @@ import tensorflow as tf
 from DataLoader import *
 from Models import *
 from utils import masked_acc, masked_loss
+import argparse
+
+parser = argparse.ArgumentParser(description='Tensorflow Translator')
+parser.add_argument('--ploting', type=bool, default=False, help='')
+parser.add_argument('--saving', type=bool, default=True, help='')
+parser.add_argument('--batch_size', type=int, default=64, help='')
+parser.add_argument('--UNITS', type=int, default=256, help='')
+parser.add_argument('--epochs', type=int, default=100, help='')
+args = parser.parse_args()
 
 
 def train(ploting=False, saving=True):
-    train_ds, val_ds, context_text_processor, target_text_processor = create_dataset(batch_size=64)
-    UNITS = 256
-    model = Translator(UNITS, context_text_processor, target_text_processor)
+    train_ds, val_ds, context_text_processor, target_text_processor = create_dataset(batch_size=args.batch_size)
+    model = Translator(args.UNITS, context_text_processor, target_text_processor)
     model.compile(optimizer='adam',
                   loss=masked_loss,
                   metrics=[masked_acc, masked_loss]
@@ -15,7 +23,7 @@ def train(ploting=False, saving=True):
 
     history = model.fit(
         train_ds.repeat(),
-        epochs=100,
+        epochs=args.epochs,
         steps_per_epoch=100,
         validation_data=val_ds,
         validation_steps=20,
