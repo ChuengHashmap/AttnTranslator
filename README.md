@@ -13,4 +13,4 @@ python train.py --plotting True --saving True --batch_size 64 --epochs 100 --UNI
 ```
 You can run use the model to conduct translation jobs through ```python predict.py```
   
-The detailed descriptions are in the 
+The detailed descriptions are in the ```Descriptions.md```
